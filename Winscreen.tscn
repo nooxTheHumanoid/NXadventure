@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dskxrkmeq15aj"]
+
+[ext_resource type="Script" uid="uid://b1wprefrl0rca" path="res://Scripts/button.gd" id="1_i3t50"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Play" type="Button" parent="."]
+offset_left = 451.0
+offset_top = 344.0
+offset_right = 690.0
+offset_bottom = 403.0
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Back to menu"
+script = ExtResource("1_i3t50")
+path = "uid://2rnssecloxxs"
+
+[node name="Label" type="Label" parent="."]
+offset_top = 116.0
+offset_right = 1155.0
+offset_bottom = 263.0
+theme_override_colors/font_color = Color(0, 0.8117647, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 21
+theme_override_font_sizes/font_size = 100
+text = "You Win!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]

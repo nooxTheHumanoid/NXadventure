@@ -1,0 +1,205 @@
+[gd_scene load_steps=6 format=3 uid="uid://m5cx2brw1u0m"]
+
+[ext_resource type="Script" uid="uid://fcs6onr4vmnv" path="res://Scripts/card_gameScript.gd" id="1_ga22d"]
+[ext_resource type="Texture2D" uid="uid://desfoljmpmbh6" path="res://textures/Cards/Blank.png" id="1_hq4tf"]
+[ext_resource type="AudioStream" uid="uid://bo22385enl104" path="res://Music/Just A Simple Card Game.mp3" id="3_cwkyt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga22d"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwkyt"]
+bg_color = Color(0, 0.7882353, 0, 1)
+
+[node name="CardGame" type="Node2D"]
+script = ExtResource("1_ga22d")
+PlayerWin = "res://Winscreen.tscn"
+PlayerLoss = "res://Levels/Cutscenes/MafiaBossIntro.tscn"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -532.0
+offset_top = 100.0
+offset_right = -263.0
+offset_bottom = 195.0
+theme_override_font_sizes/font_size = 69
+text = "Your HP"
+
+[node name="PlayerHPnum" type="Label" parent="."]
+z_index = 1
+offset_left = -555.0
+offset_top = 177.0
+offset_right = -241.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 69
+text = "21"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BossHPnum" type="Label" parent="."]
+z_index = 1
+offset_left = 241.0
+offset_top = -315.0
+offset_right = 559.0
+offset_bottom = -220.0
+theme_override_font_sizes/font_size = 69
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YourNumber" type="Label" parent="."]
+offset_left = 230.0
+offset_top = 10.0
+offset_right = 375.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 69
+text = "0/21"
+
+[node name="BossNumbers" type="Label" parent="."]
+visible = false
+offset_left = 46.0
+offset_top = -220.0
+offset_right = 191.0
+offset_bottom = -125.0
+theme_override_font_sizes/font_size = 69
+text = "0/21"
+
+[node name="GuessingBossNumbers" type="Label" parent="."]
+offset_left = 11.0
+offset_top = -218.0
+offset_right = 227.0
+offset_bottom = -123.0
+theme_override_font_sizes/font_size = 69
+text = "?+0/21"
+
+[node name="NextCard" type="Label" parent="."]
+offset_left = -493.0
+offset_top = -111.0
+offset_right = -348.0
+offset_bottom = -16.0
+theme_override_font_sizes/font_size = 69
+text = "Next Card is: 1"
+
+[node name="WinStreak" type="Label" parent="."]
+offset_left = 95.0
+offset_top = 227.0
+offset_right = 575.0
+offset_bottom = 322.0
+theme_override_font_sizes/font_size = 69
+text = "Winstreak: 0"
+
+[node name="PassOppText" type="Label" parent="."]
+offset_left = 287.0
+offset_top = -231.0
+offset_right = 487.0
+offset_bottom = -136.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 69
+text = "PASS!"
+
+[node name="LoserText" type="Label" parent="."]
+visible = false
+offset_left = 189.0
+offset_top = 96.0
+offset_right = 420.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 69
+text = "LOSER!"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 4.0
+offset_top = -310.0
+offset_right = 273.0
+offset_bottom = -215.0
+theme_override_font_sizes/font_size = 69
+text = "His HP"
+
+[node name="PlayerHP" type="ProgressBar" parent="."]
+offset_left = -556.0
+offset_top = 194.0
+offset_right = -241.0
+offset_bottom = 257.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ga22d")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cwkyt")
+max_value = 21.0
+value = 21.0
+show_percentage = false
+
+[node name="BossHP" type="ProgressBar" parent="."]
+offset_left = 243.0
+offset_top = -297.0
+offset_right = 558.0
+offset_bottom = -234.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ga22d")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cwkyt")
+max_value = 30.0
+value = 30.0
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -200.0
+offset_top = 150.0
+offset_right = -51.0
+offset_bottom = 373.0
+texture = ExtResource("1_hq4tf")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -100.0
+offset_top = 146.0
+offset_right = 49.0
+offset_bottom = 369.0
+texture = ExtResource("1_hq4tf")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = -164.0
+offset_top = -383.0
+offset_right = -15.0
+offset_bottom = -160.0
+texture = ExtResource("1_hq4tf")
+stretch_mode = 4
+flip_h = true
+flip_v = true
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = -277.0
+offset_top = -395.0
+offset_right = -128.0
+offset_bottom = -172.0
+texture = ExtResource("1_hq4tf")
+stretch_mode = 4
+flip_h = true
+flip_v = true
+
+[node name="Hit" type="Button" parent="."]
+offset_left = 205.0
+offset_top = 120.0
+offset_right = 398.0
+offset_bottom = 174.0
+text = "Hit"
+
+[node name="Pass" type="Button" parent="."]
+offset_left = 205.0
+offset_top = 188.0
+offset_right = 398.0
+offset_bottom = 242.0
+text = "Pass"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cwkyt")
+volume_db = -7.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Hit" to="." method="_on_hit_pressed"]
+[connection signal="pressed" from="Pass" to="." method="_on_pass_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

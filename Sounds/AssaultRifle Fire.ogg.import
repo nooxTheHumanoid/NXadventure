@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d3q6cc4el61fo"
+path="res://.godot/imported/AssaultRifle Fire.ogg-40af75a4d10ee39ee81185ac9f09ff73.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/AssaultRifle Fire.ogg"
+dest_files=["res://.godot/imported/AssaultRifle Fire.ogg-40af75a4d10ee39ee81185ac9f09ff73.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

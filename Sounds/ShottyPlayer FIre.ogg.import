@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0wdmwqb6dkw4"
+path="res://.godot/imported/ShottyPlayer FIre.ogg-3e6f7635cee1ac40ded46a3987474ab5.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/ShottyPlayer FIre.ogg"
+dest_files=["res://.godot/imported/ShottyPlayer FIre.ogg-3e6f7635cee1ac40ded46a3987474ab5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

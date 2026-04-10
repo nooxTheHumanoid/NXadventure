@@ -1,0 +1,190 @@
+[gd_scene load_steps=23 format=3 uid="uid://cxfnf2pvy8nsp"]
+
+[ext_resource type="Script" uid="uid://kpurh4rb1np" path="res://Scripts/merc_sniper.gd" id="1_p4wrg"]
+[ext_resource type="Texture2D" uid="uid://b5uem8et2hq72" path="res://EnemySprites/Mercs/Sniper/SDeath.png" id="2_p4wrg"]
+[ext_resource type="Texture2D" uid="uid://b7q3q45b5ngr" path="res://EnemySprites/Mercs/Sniper/sWalk159.png" id="3_clvxt"]
+[ext_resource type="Texture2D" uid="uid://dub0sl72m465" path="res://EnemySprites/Mercs/Sniper/sWalk2.png" id="4_e6ckh"]
+[ext_resource type="Texture2D" uid="uid://6dnq2kqjbdgb" path="res://EnemySprites/Mercs/Sniper/swalk3.png" id="5_jof8x"]
+[ext_resource type="Texture2D" uid="uid://bp2841r63njyx" path="res://EnemySprites/Mercs/Sniper/swalk4.png" id="6_jbd24"]
+[ext_resource type="Texture2D" uid="uid://bqc2rq1llghks" path="res://EnemySprites/Mercs/Sniper/swalk6.png" id="7_geq2c"]
+[ext_resource type="Texture2D" uid="uid://dq55qgokxwvpi" path="res://EnemySprites/Mercs/Sniper/swalk7.png" id="8_hka8b"]
+[ext_resource type="Texture2D" uid="uid://ihegei2rofdk" path="res://EnemySprites/Mercs/Sniper/swalk8.png" id="9_fmxts"]
+[ext_resource type="Texture2D" uid="uid://tcdgvmbfemnx" path="res://EnemySprites/Mercs/Sniper/sIdle.png" id="10_a15w1"]
+[ext_resource type="Texture2D" uid="uid://bxdx0o25o281q" path="res://EnemySprites/Mercs/Sniper/sIdle2.png" id="11_tg4el"]
+[ext_resource type="Script" uid="uid://cyth5kbk1ykeq" path="res://Scripts/EnemyScripts/MercWeaponSniper.gd" id="12_p4wrg"]
+[ext_resource type="Texture2D" uid="uid://b2amfu0y7uiag" path="res://EnemySprites/Mercs/Arms/Sniper/Sniper1.png" id="13_p4wrg"]
+[ext_resource type="Texture2D" uid="uid://c8yv0l8esaxq4" path="res://EnemySprites/Mercs/Arms/Sniper/Sniper2.png" id="14_clvxt"]
+[ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://VitalsScenes/HPbar.tscn" id="15_clvxt"]
+[ext_resource type="AudioStream" uid="uid://dat2jnvfm14sb" path="res://Sounds/Sniper.mp3" id="15_e6ckh"]
+[ext_resource type="AudioStream" uid="uid://bvhh8si1mgygq" path="res://Sounds/N51_MadnessProjectNexus/Aggro.wav" id="17_jbd24"]
+[ext_resource type="AudioStream" uid="uid://de35pqadimvag" path="res://Sounds/N51_MadnessProjectNexus/Cheer.wav" id="18_geq2c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6g2w8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p4wrg")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_clvxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e6ckh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jof8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jbd24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_clvxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_geq2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hka8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fmxts")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_a15w1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tg4el")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auyhm"]
+size = Vector2(29, 39.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqtnk"]
+radius = 233.00859
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8s87t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_p4wrg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_clvxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p4wrg")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 7.0
+}]
+
+[node name="MercSniper" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_p4wrg")
+horizontal_speed = 20
+damage = 3
+Death_Anim = 1
+AI_mode = 1
+AI_State = 2
+show_healthbar = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6g2w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_auyhm")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(1, 14)
+scale = Vector2(5, 1)
+target_position = Vector2(0, 11)
+collision_mask = 18
+
+[node name="WallDetect" type="RayCast2D" parent="."]
+position = Vector2(-4, 2)
+scale = Vector2(1, 6)
+target_position = Vector2(-10, 0)
+collision_mask = 18
+
+[node name="WallDetect2" type="RayCast2D" parent="."]
+position = Vector2(6, 2)
+scale = Vector2(1, 6)
+target_position = Vector2(10, 0)
+collision_mask = 18
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_pqtnk")
+
+[node name="DetectionGun" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionGun"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_pqtnk")
+
+[node name="gun" type="Node2D" parent="."]
+position = Vector2(-5, 9)
+script = ExtResource("12_p4wrg")
+
+[node name="Gun" type="AnimatedSprite2D" parent="gun"]
+position = Vector2(13, -1)
+sprite_frames = SubResource("SpriteFrames_8s87t")
+
+[node name="Marker2D" type="Marker2D" parent="gun"]
+position = Vector2(24, -3)
+
+[node name="Laser" type="Line2D" parent="gun"]
+light_mask = 17
+position = Vector2(6, 1)
+scale = Vector2(0.9907834, 1)
+points = PackedVector2Array(19, 0, 2000, 0)
+width = 1.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="lasersightcast" type="RayCast2D" parent="gun"]
+position = Vector2(25, 1)
+target_position = Vector2(1963, 0)
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="gun"]
+stream = ExtResource("15_e6ckh")
+volume_db = -3.0
+
+[node name="HealthBar" parent="." instance=ExtResource("15_clvxt")]
+offset_left = -17.0
+offset_top = -24.0
+offset_right = 17.0
+offset_bottom = -19.0
+
+[node name="Alert" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_jbd24")
+volume_db = 9.0
+
+[node name="Warn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_geq2c")
+volume_db = 9.0
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_entered" from="DetectionGun" to="gun" method="_on_detection_gun_body_entered"]

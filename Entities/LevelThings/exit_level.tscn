@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://vo76jgya30xt"]
+
+[ext_resource type="Texture2D" uid="uid://36mavx3kp1f4" path="res://textures/EndGoal.png" id="1_0tvgr"]
+[ext_resource type="Script" uid="uid://bcdljqb3mua72" path="res://Scripts/Goal.gd" id="2_e1vjo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iukko"]
+
+[node name="ExitLevel" type="Sprite2D"]
+texture = ExtResource("1_0tvgr")
+script = ExtResource("2_e1vjo")
+levelEnd = "uid://2rnssecloxxs"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_iukko")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

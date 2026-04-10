@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cop4xnyle6kwx"]
+
+[ext_resource type="Script" uid="uid://bes5beco6yssd" path="res://Scripts/Bullet.gd" id="1_lvpr2"]
+[ext_resource type="Texture2D" uid="uid://yjekffxwas6x" path="res://textures/bullets/Slugs.png" id="2_antbb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvpr2"]
+size = Vector2(8, 6)
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_lvpr2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lvpr2")
+
+[node name="Detector" type="RayCast2D" parent="Area2D"]
+target_position = Vector2(6, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5707964
+texture = ExtResource("2_antbb")
+flip_v = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

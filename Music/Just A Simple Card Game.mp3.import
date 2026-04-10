@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bo22385enl104"
+path="res://.godot/imported/Just A Simple Card Game.mp3-f87a3d120b6529c6bafce569356d29ab.mp3str"
+
+[deps]
+
+source_file="res://Music/Just A Simple Card Game.mp3"
+dest_files=["res://.godot/imported/Just A Simple Card Game.mp3-f87a3d120b6529c6bafce569356d29ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

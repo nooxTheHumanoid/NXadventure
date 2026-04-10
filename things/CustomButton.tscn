@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://odp1a4enaxjt"]
+
+[ext_resource type="Script" uid="uid://bdg81feqcam3p" path="res://Scripts/custom_button.gd" id="1_f07l1"]
+
+[node name="CustomContentButton" type="Button"]
+offset_right = 199.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 32
+text = "Contnent Name"
+script = ExtResource("1_f07l1")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

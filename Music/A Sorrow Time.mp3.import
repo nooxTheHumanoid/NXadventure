@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bh4jls0gfuv5p"
+path="res://.godot/imported/A Sorrow Time.mp3-7841d022e2fd5d4aa9e43de2669f0c0f.mp3str"
+
+[deps]
+
+source_file="res://Music/A Sorrow Time.mp3"
+dest_files=["res://.godot/imported/A Sorrow Time.mp3-7841d022e2fd5d4aa9e43de2669f0c0f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

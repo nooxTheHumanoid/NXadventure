@@ -1,0 +1,170 @@
+[gd_scene load_steps=21 format=3 uid="uid://btm3rntawj3ev"]
+
+[ext_resource type="Script" uid="uid://xk4rmyk4phea" path="res://Scripts/merc_shotty.gd" id="1_xbsla"]
+[ext_resource type="Texture2D" uid="uid://vdix4am0s6n7" path="res://EnemySprites/Mercs/Regular/Death.png" id="2_wt32t"]
+[ext_resource type="Texture2D" uid="uid://b50eu2ewxsdrc" path="res://EnemySprites/Mercs/Regular/Walk159.png" id="3_k0lr1"]
+[ext_resource type="Texture2D" uid="uid://bpsyd1ciljip2" path="res://EnemySprites/Mercs/Regular/Walk2.png" id="4_vge7s"]
+[ext_resource type="Texture2D" uid="uid://divwm38ko1pa2" path="res://EnemySprites/Mercs/Regular/walk3.png" id="5_hwoba"]
+[ext_resource type="Texture2D" uid="uid://cub3wg7g57nl" path="res://EnemySprites/Mercs/Regular/walk4.png" id="6_ajwn8"]
+[ext_resource type="Texture2D" uid="uid://d08kb0toel80t" path="res://EnemySprites/Mercs/Regular/walk6.png" id="7_2r4yy"]
+[ext_resource type="Texture2D" uid="uid://bh1djso0mlf1a" path="res://EnemySprites/Mercs/Regular/walk7.png" id="8_gg774"]
+[ext_resource type="Texture2D" uid="uid://rqoedu38thst" path="res://EnemySprites/Mercs/Regular/walk8.png" id="9_k2ivx"]
+[ext_resource type="Texture2D" uid="uid://u4eiibcwsddb" path="res://EnemySprites/Mercs/Regular/Idle.png" id="10_l83jb"]
+[ext_resource type="Texture2D" uid="uid://fnpjjqi7qx03" path="res://EnemySprites/Mercs/Regular/Idle2.png" id="11_trepc"]
+[ext_resource type="Script" uid="uid://de5y83nilh7sx" path="res://Scripts/EnemyScripts/MercRifleGun.gd" id="12_xbsla"]
+[ext_resource type="Texture2D" uid="uid://t5irdrbhhbxd" path="res://EnemySprites/Mercs/Arms/Rifle/rifle1.png" id="13_wt32t"]
+[ext_resource type="Texture2D" uid="uid://dd4pdpcvyhhdo" path="res://EnemySprites/Mercs/Arms/Rifle/rifle2.png" id="14_k0lr1"]
+[ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://VitalsScenes/HPbar.tscn" id="15_dy5l0"]
+[ext_resource type="AudioStream" uid="uid://d3q6cc4el61fo" path="res://Sounds/AssaultRifle Fire.ogg" id="15_wt32t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6g2w8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wt32t")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k0lr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vge7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hwoba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ajwn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k0lr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2r4yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gg774")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_k2ivx")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_l83jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_trepc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auyhm"]
+size = Vector2(29, 39.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqtnk"]
+radius = 164.00305
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8s87t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_wt32t")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_k0lr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wt32t")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 7.0
+}]
+
+[node name="Merc" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_xbsla")
+horizontal_speed = 40
+damage = 2
+health = 3
+Death_Anim = 1
+AI_mode = 1
+show_healthbar = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6g2w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_auyhm")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(1, 14)
+scale = Vector2(5, 1)
+target_position = Vector2(0, 11)
+collision_mask = 18
+
+[node name="WallDetect" type="RayCast2D" parent="."]
+position = Vector2(-4, 2)
+scale = Vector2(1, 6)
+target_position = Vector2(-10, 0)
+collision_mask = 18
+
+[node name="WallDetect2" type="RayCast2D" parent="."]
+position = Vector2(6, 2)
+scale = Vector2(1, 6)
+target_position = Vector2(10, 0)
+collision_mask = 18
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_pqtnk")
+
+[node name="DetectionGun" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionGun"]
+position = Vector2(1, 8)
+shape = SubResource("CircleShape2D_pqtnk")
+
+[node name="gun" type="Node2D" parent="."]
+position = Vector2(-5, 9)
+script = ExtResource("12_xbsla")
+
+[node name="Gun" type="AnimatedSprite2D" parent="gun"]
+position = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_8s87t")
+animation = &"fire"
+offset = Vector2(6, -5)
+
+[node name="Marker2D" type="Marker2D" parent="gun"]
+position = Vector2(12, -2)
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="gun"]
+stream = ExtResource("15_wt32t")
+volume_db = -4.0
+
+[node name="HealthBar" parent="." instance=ExtResource("15_dy5l0")]
+offset_left = -17.0
+offset_top = -24.0
+offset_right = 17.0
+offset_bottom = -19.0
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_entered" from="DetectionGun" to="gun" method="_on_detection_gun_body_entered"]

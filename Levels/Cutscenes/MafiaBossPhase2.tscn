@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjpmb7l3q3frk"]
+
+[ext_resource type="Texture2D" uid="uid://7y70bg6mn154" path="res://textures/Misc/MafiaBoss_Stand.png" id="2_7k41x"]
+[ext_resource type="Texture2D" uid="uid://x57oixibfk03" path="res://textures/Misc/Background.png" id="2_as4ap"]
+[ext_resource type="Texture2D" uid="uid://dm8y8yu3x5l7i" path="res://textures/Misc/Next.png" id="3_as4ap"]
+[ext_resource type="Texture2D" uid="uid://cd5vam8xwj73o" path="res://textures/Misc/DialogBox.png" id="3_iqhnf"]
+[ext_resource type="Script" uid="uid://otwejbc338pr" path="res://Levels/Cutscenes/bosscutscenebutton1.gd" id="4_iqhnf"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 11
+
+[node name="Character" type="TextureRect" parent="."]
+z_index = 12
+offset_left = -660.0
+offset_top = -178.0
+offset_right = -160.0
+offset_bottom = 322.0
+texture = ExtResource("2_7k41x")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -621.0
+offset_top = -356.0
+offset_right = 628.0
+offset_bottom = 345.0
+texture = ExtResource("2_as4ap")
+
+[node name="DialogBox" type="TextureRect" parent="."]
+offset_left = -260.0
+offset_top = -306.0
+offset_right = 558.0
+offset_bottom = 53.0
+texture = ExtResource("3_iqhnf")
+
+[node name="Label" type="Label" parent="DialogBox"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 39.0
+offset_right = 767.0
+offset_bottom = 312.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Let's settle this like 
+gentlemen!"
+
+[node name="NextButton" type="TextureButton" parent="."]
+z_index = 11
+offset_left = 255.0
+offset_top = 154.0
+offset_right = 552.0
+offset_bottom = 303.0
+texture_normal = ExtResource("3_as4ap")
+texture_pressed = ExtResource("3_as4ap")
+texture_hover = ExtResource("3_as4ap")
+texture_disabled = ExtResource("3_as4ap")
+texture_focused = ExtResource("3_as4ap")
+stretch_mode = 4
+script = ExtResource("4_iqhnf")
+custom_content_path = "uid://m5cx2brw1u0m"
+
+[connection signal="pressed" from="NextButton" to="NextButton" method="_on_pressed"]

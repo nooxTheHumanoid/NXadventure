@@ -1,0 +1,45 @@
+[gd_scene load_steps=12 format=3 uid="uid://hnit6dvfkb0c"]
+
+[ext_resource type="Texture2D" uid="uid://yjkxe18t32jh" path="res://textures/grass.png" id="1_cksac"]
+[ext_resource type="Texture2D" uid="uid://csksak0iavc1" path="res://textures/SandishStone.png" id="2_ukebv"]
+[ext_resource type="Texture2D" uid="uid://bcnqw4qsfnntm" path="res://textures/bricks.png" id="3_tf024"]
+[ext_resource type="Texture2D" uid="uid://d1rirjmjh7c2v" path="res://textures/IronWalls.png" id="4_u7och"]
+[ext_resource type="Texture2D" uid="uid://cv6wqjiw4ngbc" path="res://textures/woodplanks.png" id="5_rtc2g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2t874"]
+texture = ExtResource("1_cksac")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_givm4"]
+texture = ExtResource("2_ukebv")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lw4u1"]
+texture = ExtResource("3_tf024")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3u1jv"]
+texture = ExtResource("4_u7och")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cy2b6"]
+texture = ExtResource("5_rtc2g")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_uep43"]
+physics_layer_0/collision_layer = 2
+sources/1 = SubResource("TileSetAtlasSource_givm4")
+sources/0 = SubResource("TileSetAtlasSource_2t874")
+sources/2 = SubResource("TileSetAtlasSource_lw4u1")
+sources/3 = SubResource("TileSetAtlasSource_3u1jv")
+sources/4 = SubResource("TileSetAtlasSource_cy2b6")
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_uep43")
+collision_animatable = true
+format = 2

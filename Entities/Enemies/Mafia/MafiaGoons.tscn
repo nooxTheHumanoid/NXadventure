@@ -1,0 +1,236 @@
+[gd_scene load_steps=25 format=3 uid="uid://6mjy7jqd2boq"]
+
+[ext_resource type="Script" uid="uid://b26xwo041a5qo" path="res://Scripts/EnemyScripts/mafia_goons.gd" id="1_tr0mc"]
+[ext_resource type="Texture2D" uid="uid://cpx8kre4e2cwt" path="res://EnemySprites/Mafia/Grave.png" id="2_rhj0v"]
+[ext_resource type="Texture2D" uid="uid://7yxeiqjpll76" path="res://EnemySprites/Mafia/Goons/Mafia Gooners_20251217094631.png" id="3_ernkc"]
+[ext_resource type="Texture2D" uid="uid://i7e1fg3v71sr" path="res://EnemySprites/Mafia/Goons/Mafia Gooners_20251217094818.png" id="4_rokjf"]
+[ext_resource type="Texture2D" uid="uid://de4mf07oul6qi" path="res://EnemySprites/Mafia/Goons/Mafia Gooners_20251217094828.png" id="5_r4jpg"]
+[ext_resource type="Script" uid="uid://c6tonqwri1jqy" path="res://Scripts/EnemyScripts/MafiaGoonGun.gd" id="6_tr0mc"]
+[ext_resource type="Texture2D" uid="uid://drebkmg84espo" path="res://EnemySprites/Mafia/Arms/Untitled10_20251217090421.png" id="7_amx8o"]
+[ext_resource type="Texture2D" uid="uid://chm48hpulvstm" path="res://EnemySprites/Mafia/Arms/Untitled10_20251217090443.png" id="8_xyktr"]
+[ext_resource type="AudioStream" uid="uid://dn0wp5ilhcigk" path="res://Sounds/TommyShooting.mp3" id="9_tr0mc"]
+[ext_resource type="Texture2D" uid="uid://ce6rgg51ga765" path="res://EnemySprites/Mafia/Goons/Mafia Gooners_20251217094312.png" id="11_71dpf"]
+[ext_resource type="Texture2D" uid="uid://b651glhnkva1d" path="res://EnemySprites/Mafia/Goons/Mafia Gooners_20251217094309.png" id="12_fbn8d"]
+[ext_resource type="Texture2D" uid="uid://l1m712xx6lyb" path="res://EnemySprites/Mafia/Goons/Mafia Gooners_20251217094252.png" id="13_wg622"]
+[ext_resource type="Texture2D" uid="uid://dgofjyf44earf" path="res://EnemySprites/Mafia/Goons/Mafia Gooners_20251217094257.png" id="14_2psbf"]
+[ext_resource type="Texture2D" uid="uid://dndktbxaa7tx0" path="res://EnemySprites/Mafia/Goons/Mafia Gooners_20251217094245.png" id="15_gm2b3"]
+[ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://VitalsScenes/HPbar.tscn" id="16_h1esx"]
+[ext_resource type="Texture2D" uid="uid://bllydvqiuqgok" path="res://EnemySprites/Mafia/Goons/Mafia Gooners_20251217094302.png" id="16_r837i"]
+[ext_resource type="Texture2D" uid="uid://cpcjfp541pfex" path="res://EnemySprites/Mafia/Goons/Mafia Gooners_20251217094622.png" id="17_enfeh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6g2w8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rhj0v")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ernkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rokjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ernkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r4jpg")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ernkc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auyhm"]
+size = Vector2(29, 39.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqtnk"]
+radius = 212.00237
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8s87t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_amx8o")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xyktr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_amx8o")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 7.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jq3cx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_71dpf")
+}],
+"loop": true,
+"name": &"cap",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_fbn8d")
+}],
+"loop": true,
+"name": &"fedora",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eplp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_wg622")
+}],
+"loop": true,
+"name": &"Ginger",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_2psbf")
+}],
+"loop": true,
+"name": &"old",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_gm2b3")
+}],
+"loop": true,
+"name": &"regular",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5bme"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_r837i")
+}],
+"loop": true,
+"name": &"Headphones",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_enfeh")
+}],
+"loop": true,
+"name": &"sunglasses",
+"speed": 5.0
+}]
+
+[node name="Mafia" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_tr0mc")
+horizontal_speed = 50
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6g2w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_auyhm")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(1, 14)
+scale = Vector2(5, 1)
+target_position = Vector2(0, 11)
+collision_mask = 18
+
+[node name="WallDetect" type="RayCast2D" parent="."]
+position = Vector2(-4, 2)
+scale = Vector2(1, 6)
+target_position = Vector2(-10, 0)
+collision_mask = 18
+
+[node name="WallDetect2" type="RayCast2D" parent="."]
+position = Vector2(6, 2)
+scale = Vector2(1, 6)
+target_position = Vector2(10, 0)
+collision_mask = 18
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_pqtnk")
+
+[node name="DetectionGun" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionGun"]
+position = Vector2(1, 8)
+shape = SubResource("CircleShape2D_pqtnk")
+
+[node name="gun" type="Node2D" parent="."]
+z_index = 4
+position = Vector2(-5, 9)
+script = ExtResource("6_tr0mc")
+
+[node name="Gun" type="AnimatedSprite2D" parent="gun"]
+position = Vector2(0, 5)
+sprite_frames = SubResource("SpriteFrames_8s87t")
+offset = Vector2(6, -5)
+
+[node name="Marker2D" type="Marker2D" parent="gun"]
+position = Vector2(20, -3)
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="gun"]
+stream = ExtResource("9_tr0mc")
+volume_db = -4.0
+
+[node name="HealthBar" parent="." instance=ExtResource("16_h1esx")]
+offset_left = -17.0
+offset_top = -24.0
+offset_right = 17.0
+offset_bottom = -19.0
+
+[node name="Hat" type="AnimatedSprite2D" parent="."]
+z_index = 3
+sprite_frames = SubResource("SpriteFrames_jq3cx")
+animation = &"cap"
+
+[node name="Hair" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_eplp6")
+animation = &"Ginger"
+
+[node name="Misc" type="AnimatedSprite2D" parent="."]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_u5bme")
+animation = &"Headphones"
+
+[node name="MafiaSpawnTime" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_entered" from="DetectionGun" to="gun" method="_on_detection_gun_body_entered"]
+[connection signal="timeout" from="MafiaSpawnTime" to="." method="_on_mafia_spawn_time_timeout"]

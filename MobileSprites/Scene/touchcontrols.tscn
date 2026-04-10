@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtwxedfdpbpv2"]
+
+[ext_resource type="Texture2D" uid="uid://v2bjl70itpvl" path="res://MobileSprites/left.png" id="1_ywrji"]
+[ext_resource type="Texture2D" uid="uid://cg8kqpwyr5x64" path="res://MobileSprites/right.png" id="2_lssgx"]
+[ext_resource type="Texture2D" uid="uid://cnx45c6owaexh" path="res://MobileSprites/Up.png" id="3_axeqf"]
+[ext_resource type="Texture2D" uid="uid://crjgummkb82ev" path="res://MobileSprites/Down.png" id="4_y2psb"]
+[ext_resource type="Texture2D" uid="uid://4sgt1qehw38p" path="res://MobileSprites/Taunt.png" id="5_kgw48"]
+[ext_resource type="Texture2D" uid="uid://bdhqahcjqrpay" path="res://MobileSprites/Sprint.png" id="6_t3uc3"]
+
+[node name="Control" type="Control"]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buttons" type="CanvasLayer" parent="."]
+
+[node name="left" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(21, 450)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("1_ywrji")
+texture_pressed = ExtResource("1_ywrji")
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="right" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(177, 450)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_lssgx")
+texture_pressed = ExtResource("2_lssgx")
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="jump" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(851, 461)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("3_axeqf")
+texture_pressed = ExtResource("3_axeqf")
+passby_press = true
+action = "jump"
+visibility_mode = 1
+
+[node name="down" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(899, 225)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_y2psb")
+texture_pressed = ExtResource("4_y2psb")
+action = "down"
+visibility_mode = 1
+
+[node name="taunt" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(1016, 133)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("5_kgw48")
+texture_pressed = ExtResource("5_kgw48")
+action = "taunt"
+visibility_mode = 1
+
+[node name="sprint" type="TouchScreenButton" parent="Buttons"]
+position = Vector2(1016, 345)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("6_t3uc3")
+texture_pressed = ExtResource("6_t3uc3")
+action = "sprint"
+visibility_mode = 1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cl40ft6octcta"
+path="res://.godot/imported/Shotgun fire.ogg-d55ee9e2fc4563f6320fd2079062909f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Shotgun fire.ogg"
+dest_files=["res://.godot/imported/Shotgun fire.ogg-d55ee9e2fc4563f6320fd2079062909f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgeosfih1riti"]
+
+[ext_resource type="Texture2D" uid="uid://cvinxsottt18m" path="res://EnemySprites/Stomper/StomperDead.png" id="1_4g0ew"]
+[ext_resource type="Script" uid="uid://bnsobl6lul6no" path="res://Scripts/stomper.gd" id="1_dq5x7"]
+[ext_resource type="Texture2D" uid="uid://2t7xxi1y8mdj" path="res://EnemySprites/Stomper/Stomper.png" id="2_dq5x7"]
+[ext_resource type="Texture2D" uid="uid://1ravn8gsh4r5" path="res://EnemySprites/Stomper/Stomper2.png" id="3_ralqc"]
+[ext_resource type="PackedScene" uid="uid://dkqrbo1o6fy4p" path="res://NonLevelScenes/HPbar.tscn" id="5_ralqc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3eb6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4g0ew")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dq5x7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ralqc")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfobe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dq5x7"]
+radius = 198.16154
+
+[node name="Stomper" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_dq5x7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3eb6h")
+animation = &"Walk"
+autoplay = "Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_sfobe")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+scale = Vector2(3.4, 1)
+target_position = Vector2(0, 11)
+collision_mask = 18
+
+[node name="WallDetect" type="RayCast2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1, 3)
+target_position = Vector2(-10, 0)
+collision_mask = 18
+
+[node name="WallDetect2" type="RayCast2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1, 3)
+target_position = Vector2(10, 0)
+collision_mask = 18
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_dq5x7")
+
+[node name="HealthBar" parent="." instance=ExtResource("5_ralqc")]
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = -10.5
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]

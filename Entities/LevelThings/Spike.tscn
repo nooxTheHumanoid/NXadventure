@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://drwt5fd2ow5qy"]
+
+[ext_resource type="Script" uid="uid://bgi72h7o3xop8" path="res://Scripts/Spike.gd" id="1_325oo"]
+[ext_resource type="Texture2D" uid="uid://stmp4ym8fqul" path="res://textures/Spikes.png" id="2_pj6bm"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_plhsd"]
+points = PackedVector2Array(0, -8, 8, 8, -8, 8)
+
+[node name="Sprite2D" type="Area2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_325oo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pj6bm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_plhsd")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6hdlageab6pe"
+path="res://.godot/imported/What a great new start.mp3-d04394b1506e57a488844e8e0c1be4ec.mp3str"
+
+[deps]
+
+source_file="res://Music/Levels/What a great new start.mp3"
+dest_files=["res://.godot/imported/What a great new start.mp3-d04394b1506e57a488844e8e0c1be4ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

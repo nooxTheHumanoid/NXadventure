@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2yio451oc421"]
+
+[ext_resource type="PackedScene" uid="uid://cop4xnyle6kwx" path="res://things/Slug.tscn" id="1_1xrpv"]
+[ext_resource type="Script" uid="uid://d36gs142qexbe" path="res://Scripts/BulletEnemy.gd" id="2_jiwf5"]
+[ext_resource type="Texture2D" uid="uid://q12mrc6q1ljb" path="res://textures/bullets/bullet.png" id="3_arucb"]
+
+[node name="Bullet" instance=ExtResource("1_1xrpv")]
+script = ExtResource("2_jiwf5")
+
+[node name="Area2D" parent="." index="0"]
+collision_mask = 1
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_arucb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

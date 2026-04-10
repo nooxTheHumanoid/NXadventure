@@ -1,0 +1,103 @@
+[gd_scene load_steps=4 format=3 uid="uid://2rnssecloxxs"]
+
+[ext_resource type="Script" uid="uid://b1wprefrl0rca" path="res://Scripts/button.gd" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://j5yvnirgrbnx" path="res://Scripts/Menu_CheckBoxes.gd" id="1_ytr4m"]
+[ext_resource type="AudioStream" uid="uid://d0llg1iryhkni" path="res://Music/An average menu.mp3" id="3_mae5d"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 451.0
+offset_top = 308.0
+offset_right = 691.0
+offset_bottom = 368.0
+script = ExtResource("1_ytr4m")
+
+[node name="Play" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 239.0
+offset_bottom = 59.0
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Play"
+script = ExtResource("1_lti8b")
+path = "uid://b0w80vqltrl5f"
+
+[node name="Arena" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 78.0
+offset_right = 239.0
+offset_bottom = 137.0
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Arena"
+script = ExtResource("1_lti8b")
+path = "uid://bv02eg3dotl02"
+
+[node name="CustomContent" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 155.0
+offset_right = 238.0
+offset_bottom = 214.0
+focus_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Custom Content"
+script = ExtResource("1_lti8b")
+path = "uid://uwnk7ddq4e2v"
+
+[node name="Music" type="CheckBox" parent="Control"]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 274.0
+offset_right = 579.0
+offset_bottom = 340.0
+theme_override_font_sizes/font_size = 42
+button_pressed = true
+text = "Music"
+
+[node name="SFX" type="CheckBox" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 587.0
+offset_top = 274.0
+offset_right = 462.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+button_pressed = true
+text = "SFX"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(581, 334)
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mae5d")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 116.0
+offset_right = 1132.0
+offset_bottom = 263.0
+theme_override_colors/font_color = Color(0, 0.8117647, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 21
+theme_override_font_sizes/font_size = 100
+text = "Average 2D Platformer"
+
+[connection signal="pressed" from="Control/Play" to="Control/Play" method="_on_pressed"]
+[connection signal="pressed" from="Control/Arena" to="Control/Arena" method="_on_pressed"]
+[connection signal="pressed" from="Control/CustomContent" to="Control/CustomContent" method="_on_pressed"]
+[connection signal="toggled" from="Control/Music" to="Control" method="_on_music_toggled"]
+[connection signal="toggled" from="Control/SFX" to="Control" method="_on_sfx_toggled"]

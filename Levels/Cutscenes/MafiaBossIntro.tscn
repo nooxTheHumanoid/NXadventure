@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg86mv7ckex06"]
+
+[ext_resource type="Texture2D" uid="uid://7y70bg6mn154" path="res://textures/Misc/MafiaBoss_Stand.png" id="1_jv8r6"]
+[ext_resource type="Texture2D" uid="uid://x57oixibfk03" path="res://textures/Misc/Background.png" id="2_ynxe0"]
+[ext_resource type="Texture2D" uid="uid://cd5vam8xwj73o" path="res://textures/Misc/DialogBox.png" id="3_hv7ny"]
+[ext_resource type="Texture2D" uid="uid://dm8y8yu3x5l7i" path="res://textures/Misc/Next.png" id="4_ob2bb"]
+[ext_resource type="Script" uid="uid://otwejbc338pr" path="res://Levels/Cutscenes/bosscutscenebutton1.gd" id="5_8bhc6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 11
+
+[node name="Character" type="TextureRect" parent="."]
+z_index = 12
+offset_left = -94.0
+offset_top = -154.0
+offset_right = 120.0
+offset_bottom = 61.0
+texture = ExtResource("1_jv8r6")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -618.0
+offset_top = -350.0
+offset_right = 631.0
+offset_bottom = 351.0
+texture = ExtResource("2_ynxe0")
+
+[node name="DialogBox" type="TextureRect" parent="."]
+offset_left = -549.0
+offset_top = -306.0
+offset_right = 558.0
+offset_bottom = 105.0
+texture = ExtResource("3_hv7ny")
+
+[node name="Label" type="Label" parent="DialogBox"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 27.0
+offset_right = 1092.0
+offset_bottom = 363.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Defeat the Mafia Boss
+(      )"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextButton" type="TextureButton" parent="."]
+z_index = 11
+offset_left = 255.0
+offset_top = 154.0
+offset_right = 552.0
+offset_bottom = 303.0
+texture_normal = ExtResource("4_ob2bb")
+texture_pressed = ExtResource("4_ob2bb")
+texture_hover = ExtResource("4_ob2bb")
+texture_disabled = ExtResource("4_ob2bb")
+texture_focused = ExtResource("4_ob2bb")
+stretch_mode = 4
+script = ExtResource("5_8bhc6")
+custom_content_path = "uid://c65hi6iu405pn"
+
+[connection signal="pressed" from="NextButton" to="NextButton" method="_on_pressed"]

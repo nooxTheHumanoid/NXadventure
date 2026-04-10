@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpmms0bfo24dp"]
+
+[ext_resource type="Script" uid="uid://xw28tbvonejr" path="res://Scripts/shotty.gd" id="1_o7t1e"]
+[ext_resource type="Texture2D" uid="uid://doxhey88wkcq3" path="res://PlayerSprites/Arms/shotty/shottyinhands.png" id="2_kdrwu"]
+[ext_resource type="Texture2D" uid="uid://btcu272apd2em" path="res://PlayerSprites/Arms/shotty/Shottyfire.png" id="3_oujsd"]
+[ext_resource type="Script" uid="uid://cdudjf4b6ntn7" path="res://Scripts/GunAnims.gd" id="4_kdrwu"]
+[ext_resource type="AudioStream" uid="uid://d0wdmwqb6dkw4" path="res://Sounds/ShottyPlayer FIre.ogg" id="5_oujsd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tjktq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_oujsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kdrwu")
+}],
+"loop": false,
+"name": &"Fire",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kdrwu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Shotty" type="Node2D"]
+script = ExtResource("1_o7t1e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, -1)
+sprite_frames = SubResource("SpriteFrames_tjktq")
+script = ExtResource("4_kdrwu")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(26, -3)
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_oujsd")
+volume_db = -7.0
